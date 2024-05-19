@@ -33,3 +33,30 @@ export const deleteProduct = async (formData) => {
 };
 
 
+export const addProduct = async (formData) => {
+  const { title, desc, price, stock, color, size } =
+    Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+
+    const newProduct = new Product({
+      title,
+      desc,
+      price,
+      stock,
+      color,
+      size,
+    });
+
+    await newProduct.save();
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to create product!");
+  }
+
+  revalidatePath("/dashboard/products");
+  redirect("/dashboard/products");
+};
+
+
