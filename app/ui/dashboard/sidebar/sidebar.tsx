@@ -13,8 +13,9 @@ import {
 import MenuLink from "./menuLink/menuLink";
 import styles from "./sidebar.module.scss";
 import Image from "next/image";
+import { MenuItem } from "@/app/types/menuItem.interface";
 
-const menuItems = [
+const menuItems: MenuItem[] = [
   {
     title: "Pages",
     list: [

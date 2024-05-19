@@ -1,6 +1,8 @@
 // DUMMY DATA
 
-export const cards = [
+import { ICard } from "../types/cards.interface";
+
+export const cards: ICard[] = [
   {
     id: 1,
     title: "Total Users",
